@@ -8,7 +8,7 @@ RUN go get -u $PACKAGE
 WORKDIR $PACKAGEDIR
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server .
 
-FROM alpine:latest
+FROM alpine:3.18.3
 
 ENV PACKAGE google.golang.org/grpc/interop/server
 ENV PACKAGEDIR $GOPATH/src/$PACKAGE
